@@ -4,8 +4,8 @@ class TextType(Enum):
     text = "text(plain)"
     italic = "italic"
     code = "code"
-    links = "link"
-    images = "image"
+    link = "link"
+    image = "image"
     bold = "bold"
     quote = "quote"
 

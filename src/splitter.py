@@ -58,3 +58,12 @@ def split_nodes_link(old_nodes):
         if new_nodes[i].text == '':
             new_nodes.pop(i)
     return new_nodes
+
+def text_to_textnodes(text):
+    nodes = [TextNode(text, TextType.text)]
+    nodes = split_nodes_delimiter(nodes, "_", TextType.italic)
+    nodes = split_nodes_delimiter(nodes, "`", TextType.code)
+    nodes = split_nodes_delimiter(nodes, "**", TextType.bold)
+    nodes = split_nodes_image(nodes)
+    nodes = split_nodes_link(nodes)
+    return nodes

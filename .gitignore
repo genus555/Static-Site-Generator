@@ -3,3 +3,4 @@ src/test_textnode.py
 src/test_htmlnode.py
 src/test_leafnode.py
 src/test_parentnode.py
+src/test_splitter.py

@@ -7,7 +7,6 @@ class TextType(Enum):
     link = "link"
     image = "image"
     bold = "bold"
-    quote = "quote"
 
 class TextNode():
     def __init__(self, text, text_type, url=None):

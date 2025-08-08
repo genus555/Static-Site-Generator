@@ -6,3 +6,4 @@ src/test_parentnode.py
 src/test_splitter.py
 src/test_extractlink.py
 src/test_block.py
+src/test_converter.py

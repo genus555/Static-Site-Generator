@@ -1,7 +1,9 @@
 from textnode import TextNode
+from file_handler import *
 def main():
     
-    web_text = TextNode("test link", "link", "https://www.boot.dev")
-    print(web_text)
+    #web_text = TextNode("test link", "link", "https://www.boot.dev")
+    #print(web_text)
+    print(source_to_public())
 
 main()

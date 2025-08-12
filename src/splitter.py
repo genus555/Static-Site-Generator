@@ -29,14 +29,15 @@ def split_nodes_image(old_nodes):
             old_message = node.text
             for image in images:
                 left_over = old_message.split(f"![{image[0]}]({image[1]})", 1)
-                new_nodes.append(TextNode(left_over[0], TextType.text))
+
+                if left_over[0] != '':
+                    new_nodes.append(TextNode(left_over[0], TextType.text))
+                    
                 new_nodes.append(TextNode(image[0], TextType.image, image[1]))
                 old_message = left_over[1]
-            new_nodes.append(TextNode(old_message, TextType.text))
-    
-    for i in range(len(new_nodes)):
-        if new_nodes[i].text == '':
-            new_nodes.pop(i)
+
+            if old_message != '':    
+                new_nodes.append(TextNode(old_message, TextType.text))
     return new_nodes
 
 def split_nodes_link(old_nodes):
@@ -49,14 +50,15 @@ def split_nodes_link(old_nodes):
             old_message = node.text
             for link in links:
                 left_over = old_message.split(f"[{link[0]}]({link[1]})", 1)
-                new_nodes.append(TextNode(left_over[0], TextType.text))
+
+                if left_over[0] != '':
+                    new_nodes.append(TextNode(left_over[0], TextType.text))
+                
                 new_nodes.append(TextNode(link[0], TextType.link, link[1]))
                 old_message = left_over[1]
-            new_nodes.append(TextNode(old_message, TextType.text))
-    
-    for i in range(len(new_nodes)):
-        if new_nodes[i].text == '':
-            new_nodes.pop(i)
+
+            if old_message != '':
+                new_nodes.append(TextNode(old_message, TextType.text))
     return new_nodes
 
 def text_to_textnodes(text):

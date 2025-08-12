@@ -6,7 +6,7 @@ class LeafNode(HTMLNode):
         super().__init__(tag, value, None, props)
     
     def to_html(self):
-        if self.value == None or self.value == "":
+        if self.value == None:
             raise ValueError("All Leaf nodes must have a value")
         if self.tag == None:
             return self.value
@@ -42,5 +42,8 @@ def text_node_to_html_node(text_node):
     
     if text_node.text_type != TextType.image:
         value = text_node.text
-    
+    else:
+        value = ''
+
+    #print(f"DEBUG: Creating LeafNode - tag: {tag}, value: '{value}', props: {props}")
     return LeafNode(tag, value, props)

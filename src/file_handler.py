@@ -30,10 +30,7 @@ def copy_dir(source_path, source_files, source):
     for file in source_files:
         new_dst = source_to_public_path(source, source_path, file)
         path = f"{source_path}/{file}"
-
-        #debug
-        print(f"Old Path: {path}\nNew Path:{new_dst}\n--------------")
-        
+          
         if os.path.isdir(path):
             os.mkdir(new_dst)
             path_files = dir_file_list(path)
